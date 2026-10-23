@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal d'Entraînement - Calendrier</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+</head>
+<body>
+  <header>
+    <h1>💪 Journal d'Entraînement</h1>
+    <div class="controls">
+      <button id="prevMonth">◀</button>
+      <h2 id="monthYear"></h2>
+      <button id="nextMonth">▶</button>
+      <button id="todayBtn">Aujourd'hui</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="calendar">
+      <div class="weekdays">
+        <div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div><div>Dim</div>
+      </div>
+      <div id="days" class="days"></div>
+    </div>
+
+    <div class="stats-summary" id="monthStats"></div>
+  </main>
+
+  <!-- Modal pour le jour -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalDate"></h2>
+
+      <section class="section">
+        <h3>🏋️ Exercices de force</h3>
+        <div class="exercise-row">
+          <label>Pompes</label>
+          <input type="number" id="pompes" min="0" placeholder="reps">
+        </div>
+        <div class="exercise-row">
+          <label>Dips</label>
+          <input type="number" id="dips" min="0" placeholder="reps">
+        </div>
+        <div class="exercise-row">
+          <label>Tractions</label>
+          <input type="number" id="tractions" min="0" placeholder="reps">
+        </div>
+        <div class="exercise-row">
+          <label>Abdos</label>
+          <input type="number" id="abdos" min="0" placeholder="reps">
+        </div>
+        <div id="customExercises"></div>
+        <button id="addExerciseBtn" type="button">+ Ajouter un exercice</button>
+      </section>
+
+      <section class="section">
+        <h3>🏃 Course à pied</h3>
+        <div class="run-row">
+          <label>Distance (km)</label>
+          <input type="number" id="runKm" min="0" step="0.1" placeholder="ex: 5.2">
+        </div>
+        <div class="run-row">
+          <label>Temps (min)</label>
+          <input type="number" id="runTime" min="0" step="0.1" placeholder="ex: 28.5">
+          <small>ou minutes.secondes (28.30 pour 28min30s)</small>
+        </div>
+        <div class="run-row">
+          <label>Allure moyenne</label>
+          <span id="paceDisplay">—</span> min/km
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>📝 Notes</h3>
+        <textarea id="notes" rows="3" placeholder="Commentaires, sensations..."></textarea>
+      </section>
+
+      <div class="modal-actions">
+        <button id="saveBtn" class="primary">💾 Sauvegarder</button>
+        <button id="clearBtn" class="danger">🗑️ Effacer le jour</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Données stockées localement dans votre navigateur. Aucune donnée n'est envoyée en ligne.</p>
+    <button id="exportBtn">📥 Exporter</button>
+    <button id="importBtn">📤 Importer</button>
+    <input type="file" id="importFile" accept=".json" style="display:none">
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
